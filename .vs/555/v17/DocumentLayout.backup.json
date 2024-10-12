@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\37635\\source\\repos\\\u52C7\u6562\u5C0F\u4E941.0.0\u7248\u672C\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AE17B755-B779-4CB3-86DC-959BFD081F79}|555\\555.vcxproj|C:\\Users\\37635\\source\\repos\\\u52C7\u6562\u5C0F\u4E941.0.0\u7248\u672C\\555\\\u52C7\u6562\u5C0F\u4E94.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AE17B755-B779-4CB3-86DC-959BFD081F79}|555\\555.vcxproj|solutionrelative:555\\\u52C7\u6562\u5C0F\u4E94.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE17B755-B779-4CB3-86DC-959BFD081F79}|555\\555.vcxproj|C:\\Users\\37635\\source\\repos\\\u52C7\u6562\u5C0F\u4E941.0.0\u7248\u672C\\555\\enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AE17B755-B779-4CB3-86DC-959BFD081F79}|555\\555.vcxproj|solutionrelative:555\\enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "\u52C7\u6562\u5C0F\u4E94.cpp",
+              "DocumentMoniker": "C:\\Users\\37635\\source\\repos\\\u52C7\u6562\u5C0F\u4E941.0.0\u7248\u672C\\555\\\u52C7\u6562\u5C0F\u4E94.cpp",
+              "RelativeDocumentMoniker": "555\\\u52C7\u6562\u5C0F\u4E94.cpp",
+              "ToolTip": "C:\\Users\\37635\\source\\repos\\\u52C7\u6562\u5C0F\u4E941.0.0\u7248\u672C\\555\\\u52C7\u6562\u5C0F\u4E94.cpp",
+              "RelativeToolTip": "555\\\u52C7\u6562\u5C0F\u4E94.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-04T01:39:35.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "enemy.cpp",
+              "DocumentMoniker": "C:\\Users\\37635\\source\\repos\\\u52C7\u6562\u5C0F\u4E941.0.0\u7248\u672C\\555\\enemy.cpp",
+              "RelativeDocumentMoniker": "555\\enemy.cpp",
+              "ToolTip": "C:\\Users\\37635\\source\\repos\\\u52C7\u6562\u5C0F\u4E941.0.0\u7248\u672C\\555\\enemy.cpp",
+              "RelativeToolTip": "555\\enemy.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-04T10:05:06.684Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
