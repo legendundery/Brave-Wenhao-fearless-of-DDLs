@@ -89,10 +89,12 @@ struct YOU
     int multi;              //敌人的加成系数，注意是整数
     int score;
     int gsocre[plusgradenum] = {0,0,6000,10000,32000,256000,1024000,4096000,16384000,33554432,99999999};              //到达该等级所需要的分数
+    int type;
+
 
     DWORD t1, t2, dt;		// 子弹发射时间间隔
     DWORD et1, et2, edt;     //敌人出现时间间隔
-    IMAGE img[2];			// 储存自机一亮一暗图片
+    IMAGE img[3];			// 储存自机图片:暗，机体一，机体二
     byte n : 1;				// 图片下标
 
 }you;
@@ -119,6 +121,7 @@ void movinggamewindow();        //动态游戏界面(未编写完成)
 void gamebeginpre();            //游戏开始预处理
 void gamepause();               //游戏暂停
 void shootj();                  //处理子弹
+void shootjspecial();           //处理特殊子弹
 void shoote();                  //处理敌机
 void handle();                  //处理碰撞与分数（未编写）
 void handlegrade();             //处理等级相关（未编写）
@@ -250,7 +253,7 @@ int main() {
                         else you.x += you.step;
                     }
                     else;
-                    putimage(you.x, you.y, &you.img[1]);
+                    putimage(you.x, you.y, &you.img[you.type]);
 
 
 
@@ -534,18 +537,42 @@ void gamebeginpre() {
     cleardevice();
     outtextxy(200, 600, "loading……");
     
-    
+    //机体一
+    if (you.type == 1) {
+
+        you.step = 30;
+        you.grade = 1;
+        you.score = 3000;
+        you.blood = 3;              //残机
+        you.power = 1;
+        you.multi = 1;              //敌人的加成系数
+
+        you.t1 = timeGetTime();
+        you.dt = 200;	    // 子弹发射间隔
+
+    }
+
+    else if (you.type == 2) {
+
+        you.step = 40;              //步长，相当于移动速度？
+        you.grade = 1;              //初始等级
+        you.score = 0;              //初始分数
+        you.blood = 3;              //残机
+        you.power = 1;              //初始子弹伤害
+        you.multi = 1;              //敌人的加成系数
+
+        you.t1 = timeGetTime();
+        you.dt = 200;	            // 子弹发射间隔（时间越短，发射间隔越短）
+
+
+    }
+
+    else {
+        printf("error!\n");
+        system("pause");
+    }
 
     you.x = 80, you.y = 400;				// 当前坐标
-    you.step = 40;
-    you.grade = 1;
-    you.score = 3000;
-    you.blood = 3;              //残机
-    you.power = 1;
-    you.multi = 1;              //敌人的加成系数
-
-    you.t1 = timeGetTime();
-    you.dt = 200;	    // 子弹发射间隔
     you.et1 = timeGetTime();
     you.edt = 2000;     //出怪间隔 
     you.n = 0;
@@ -634,6 +661,7 @@ void Load() {
 
     //自机
     loadimage(&you.img[1], "./file/car.jpg",80,80);
+    loadimage(&you.img[2], "", 80, 80);
     loadimage(&you.img[0], "./file/carw.jpg",80,80);//暗
 
     //子弹
@@ -766,6 +794,50 @@ void shootj()
         
     }
         
+}
+
+void shootjspecial() {
+
+    bool isshoot = 0;//当前是否需要发射特殊子弹，控制发射间隔，并非是否开技能等
+    you.t2 = timeGetTime();
+    if (you.t2 - you.t1 > you.dt) {
+        isshoot = 1;
+        you.t1 = you.t2;
+    }
+    else;
+    for (int temp = 0; temp < MAXJET; temp++) {
+        jet[temp].t2 = timeGetTime();
+
+        //测试：
+        //putimage((temp + 1) * 50, (temp + 1) * 20, &jet[temp].img[1]);
+
+        if (jet[temp].shoot) {
+            if (jet[temp].x < RIGHT - jet[temp].size && jet[temp].t2 - jet[temp].t1 > jet[temp].dt) {
+                putimage(jet[temp].x, jet[temp].y, &jet[temp].img[0]);
+                jet[temp].x += you.step;
+                putimage(jet[temp].x, jet[temp].y, &jet[temp].img[1]);
+                jet[temp].t1 = jet[temp].t2;
+            }
+            else if (jet[temp].x >= RIGHT - jet[temp].size - jet[temp].size) {
+                putimage(jet[temp].x, jet[temp].y, &jet[temp].img[0]);
+                jet[temp].shoot = 0;
+            }
+            else;
+        }
+        else;
+
+        if (isshoot && !jet[temp].shoot) {
+            Initj(temp);
+            putimage(jet[temp].x, jet[temp].y, &jet[temp].img[1]);
+            jet[temp].shoot = 1;
+            isshoot = 0;
+        }
+
+        else;
+
+
+    }
+
 }
 
 void shoote() {
@@ -1169,3 +1241,4 @@ void handleenemy(int j,int to) {
     }
     else;
 }
+
